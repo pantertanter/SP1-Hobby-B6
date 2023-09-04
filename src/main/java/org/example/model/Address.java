@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "address")
+@NamedQuery(name = "Address.findAll", query = "SELECT a FROM Address a")
 public class Address {
 
     /*

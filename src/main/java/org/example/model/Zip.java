@@ -8,6 +8,11 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "zip")
+@NamedQueries({
+        @NamedQuery(name = "Zip.findAll", query = "SELECT z FROM Zip z"),
+        @NamedQuery(name = "Zip.DeleteAllRows", query = "DELETE FROM Zip"),
+        //@NamedQuery(name = "Zip.findByCity", query = "SELECT z FROM Zip z WHERE z.city = :city")
+})
 public class Zip {
 
     /*
