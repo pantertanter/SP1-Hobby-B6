@@ -39,7 +39,7 @@ public class Person {
     private Set<Hobby> hobby = new HashSet<>();
 
     @ManyToMany
-    private Set<Interests> interests = new HashSet<>();
+    private Set<Interest> interests = new HashSet<>();
 
     public enum Gender {
     MALE, FEMALE, OTHER
