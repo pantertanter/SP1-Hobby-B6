@@ -4,7 +4,7 @@ import org.example.model.Zip;
 
 import java.util.List;
 
-public interface IZipDao {
+public interface IZipDAO {
     public Zip saveZip(Zip zip);
 
     public Zip readZip(int id);

@@ -21,9 +21,9 @@ public class HibernateConfigTest {
 
             Properties props = new Properties();
 
-            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/postgres?currentSchema=public");
+            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/matchmaking?currentSchema=public");
             props.put("hibernate.connection.username", "postgres");
-            props.put("hibernate.connection.password", "12345");
+            props.put("hibernate.connection.password", "postgres");
             props.put("hibernate.show_sql", "true"); // show sql in console
             props.put("hibernate.format_sql", "true"); // format sql in console
             props.put("hibernate.use_sql_comments", "true"); // show sql comments in console
@@ -62,6 +62,7 @@ public class HibernateConfigTest {
         configuration.addAnnotatedClass(PersonDetails.class);
         configuration.addAnnotatedClass(Profession.class);
         configuration.addAnnotatedClass(Zip.class);
+        configuration.addAnnotatedClass(Phone.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig() {

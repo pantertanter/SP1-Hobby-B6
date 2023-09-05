@@ -3,6 +3,10 @@ package org.example.model;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @NoArgsConstructor
 @Entity
 @Table(name = "personDetails")
@@ -11,8 +15,8 @@ public class PersonDetails {
     @Id
     private int id;
 
-    @Column(name = "phone", unique = true, nullable = false)
-    private String phoneNumber;
+    @OneToMany
+    private Set<Phone> phone = new HashSet<>();
 
     @OneToOne
     private Address address;
@@ -20,5 +24,4 @@ public class PersonDetails {
     @MapsId
     @OneToOne
     private Person person;
-
 }

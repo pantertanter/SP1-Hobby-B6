@@ -6,7 +6,7 @@ import org.example.model.Zip;
 
 import java.util.List;
 
-public class ZipDAO implements IZipDao{
+public class ZipDAO implements IZipDAO {
 
     private static EntityManagerFactory emf;
 

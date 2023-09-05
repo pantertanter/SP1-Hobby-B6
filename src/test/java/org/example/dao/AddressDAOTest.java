@@ -53,6 +53,7 @@ class AddressDAOTest {
             em.createNativeQuery("DELETE FROM personDetails").executeUpdate();
             em.createNativeQuery("DELETE FROM profession").executeUpdate();
             em.createNativeQuery("DELETE FROM zip").executeUpdate();
+            em.createNativeQuery("DELETE FROM phone").executeUpdate();
 
             em.createNativeQuery("ALTER SEQUENCE address_id_seq RESTART WITH 1").executeUpdate();
 

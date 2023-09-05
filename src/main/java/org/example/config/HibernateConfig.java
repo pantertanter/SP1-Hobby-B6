@@ -62,6 +62,7 @@ public class HibernateConfig {
         configuration.addAnnotatedClass(PersonDetails.class);
         configuration.addAnnotatedClass(Profession.class);
         configuration.addAnnotatedClass(Zip.class);
+        configuration.addAnnotatedClass(Phone.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig() {

@@ -1,5 +1,6 @@
 package org.example.dao;
 
+import org.example.model.Person;
 import org.example.model.PersonDetails;
 
 import java.util.List;
@@ -16,4 +17,7 @@ public interface IPersonDetailsDAO {
 
     public PersonDetails deletePersonDetails(PersonDetails personDetails);
 
+    public List<PersonDetails> readAllPersonPhoneNumbers(Person person); // [US-2]
 }
+
+

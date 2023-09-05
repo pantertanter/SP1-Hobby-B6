@@ -17,8 +17,6 @@ public interface IPersonDAO {
 
     public Person deletePerson(Person person);
 
-    public List<Person> readAllPersonPhoneNumbers(Person person); //[US-2]
-
     public List<Person> readAllPersonsByHobby(Hobby hobby); // [US-3]
 
     public List<Person> countOfPersonsWithHobby(Hobby hobby); //[US-4]

@@ -2,65 +2,68 @@ package org.example.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import org.example.model.Profession;
+import org.example.model.Phone;
+import org.example.model.Zip;
 
 import java.util.List;
 
-public class ProfessionDAO implements IProfessionDAO {
+public class PhoneDAO implements IPhoneDAO {
 
     private static EntityManagerFactory emf;
 
-    private static ProfessionDAO instance;
+    private static PhoneDAO instance;
 
-    public static ProfessionDAO getInstance(EntityManagerFactory _emf){
+    //singleton pattern
+
+    public static PhoneDAO getInstance(EntityManagerFactory _emf){
         if(instance == null){
             emf = _emf;
-            instance = new ProfessionDAO();
+            instance = new PhoneDAO();
         }
         return instance;
     }
 
     @Override
-    public Profession saveProfession(Profession profession) {
+    public Phone savePhone(Phone phone) {
         try(EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
-            em.persist(profession);
+            em.persist(phone);
             em.getTransaction().commit();
-            return profession;
+            return phone;
         }
     }
 
     @Override
-    public Profession readProfession(String name) {
+    public Phone readPhone(int id) {
         try(EntityManager em = emf.createEntityManager()){
-            return em.find(Profession.class,name);
+            return em.find(Phone.class,id);
         }
     }
 
     @Override
-    public List<Profession> readAllProfessions() {
+    public List<Phone> readAllPhones() {
         try(EntityManager em = emf.createEntityManager()){
-            return em.createNamedQuery("Profession.findAll", Profession.class).getResultList();
+            return em.createNamedQuery("Phone.findAll", Phone.class).getResultList();
         }
     }
 
     @Override
-    public Profession updateProfession(Profession profession) {
+    public Phone updatePhone(Phone phone) {
         try(EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
-            em.merge(profession);
+            em.merge(phone);
             em.getTransaction().commit();
-            return profession;
+            return phone;
         }
     }
 
     @Override
-    public Profession deleteProfession(Profession profession) {
+    public Phone deletePhone(Phone phone) {
         try(EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
-            em.remove(profession);
+            em.remove(phone);
             em.getTransaction().commit();
-            return profession;
+            return phone;
         }
     }
 }

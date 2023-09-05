@@ -52,6 +52,7 @@ class HobbyDAOTest {
             em.createNativeQuery("DELETE FROM personDetails").executeUpdate();
             em.createNativeQuery("DELETE FROM profession").executeUpdate();
             em.createNativeQuery("DELETE FROM zip").executeUpdate();
+            em.createNativeQuery("DELETE FROM phone").executeUpdate();
 
             em.getTransaction().commit();
         }

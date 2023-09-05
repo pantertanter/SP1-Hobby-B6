@@ -1,12 +1,10 @@
 package org.example.dao;
 
-import org.example.model.Address;
-import org.example.model.Hobby;
 import org.example.model.Profession;
 
 import java.util.List;
 
-public interface IProfession {
+public interface IProfessionDAO {
 
     public Profession saveProfession(Profession profession);
 
