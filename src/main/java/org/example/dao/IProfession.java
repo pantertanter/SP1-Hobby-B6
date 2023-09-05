@@ -10,7 +10,7 @@ public interface IProfession {
 
     public Profession saveProfession(Profession profession);
 
-    public Profession readProfession(int id);
+    public Profession readProfession(String name);
 
     public List<Profession> readAllProfessions();
 
