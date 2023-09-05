@@ -21,7 +21,7 @@ public class HibernateConfigTest {
 
             Properties props = new Properties();
 
-            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/matchmaking?currentSchema=public");
+            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/matchmakingtest?currentSchema=public");
             props.put("hibernate.connection.username", "postgres");
             props.put("hibernate.connection.password", "postgres");
             props.put("hibernate.show_sql", "true"); // show sql in console

@@ -6,17 +6,17 @@ import org.example.model.Address;
 
 import java.util.List;
 
-public class addressDAO implements IAddressDAO{
+public class AddressDAO implements IAddressDAO{
 
     private static EntityManagerFactory emf;
 
-    private static addressDAO instance;
+    private static AddressDAO instance;
 
     //singleton pattern
-    public static addressDAO getInstance(EntityManagerFactory _emf){
+    public static AddressDAO getInstance(EntityManagerFactory _emf){
         if(instance == null){
             emf = _emf;
-            instance = new addressDAO();
+            instance = new AddressDAO();
         }
         return instance;
     }

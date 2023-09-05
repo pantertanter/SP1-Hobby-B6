@@ -1,9 +1,8 @@
 package org.example.dao;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import org.example.config.HibernateConfig;
 import org.example.model.Zip;
+import org.example.testconfig.HibernateConfigTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,20 +11,15 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class zipDAOTest {
-
-    private static EntityManagerFactory emf;
-
-    private static EntityManager em;
+class ZipDAOTest {
 
     private static zipDAO zipDAO;
 
     @BeforeEach
     void setUp() {
 
-        emf = HibernateConfig.getEntityManagerFactoryConfig();
-        zipDAO = org.example.dao.zipDAO.getInstance(emf);
-        em = emf.createEntityManager();
+        zipDAO = org.example.dao.zipDAO.getInstance(HibernateConfigTest.getEntityManagerFactoryConfig());
+
         Zip zip1 = new Zip(3400, "Hillerød");
         Zip zip2 = new Zip(2200, "København N");
         Zip zip3 = new Zip(2400, "København NV");
@@ -40,7 +34,8 @@ class zipDAOTest {
 
     @AfterEach
     void tearDown() {
-        EntityManager em = emf.createEntityManager();
+
+        EntityManager em = HibernateConfigTest.getEntityManagerFactoryConfig().createEntityManager();
 
         try {
             em.getTransaction().begin();
