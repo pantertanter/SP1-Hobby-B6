@@ -3,6 +3,7 @@ package org.example.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Cascade;
 
 @Getter
@@ -17,9 +18,11 @@ public class Address {
     private int id;
 
 
+    @Setter
     @Column(name = "street", nullable = false)
     private String street;
 
+    @Setter
     @Column(name = "houseNumber", nullable = false)
     private String houseNumber;
 

@@ -1,10 +1,12 @@
 package org.example.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Getter
 @NoArgsConstructor
 @Entity
 @Table(name = "zip")
@@ -15,13 +17,6 @@ import java.util.List;
 })
 public class Zip {
 
-    /*
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-     */
-
-    //måske er det lidt meningsløst med en auto gen primary key når vi har unique zip også
     @Id
     @Column(name = "zipCode", unique = true, nullable = false)
     private int zipCode;
@@ -37,11 +32,7 @@ public class Zip {
         this.city = city;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String smørum) {
-        this.city = smørum;
+    public void setCity(String city) {
+        this.city = city;
     }
 }

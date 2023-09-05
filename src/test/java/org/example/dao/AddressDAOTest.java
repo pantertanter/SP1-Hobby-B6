@@ -8,6 +8,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AddressDAOTest {
@@ -65,15 +67,7 @@ class AddressDAOTest {
     }
 
     @Test
-    void getInstance() {
-
-
-
-    }
-
-    @Test
     void saveAddress() {
-
         Address savedAddress = new Address("Hillerødvej","1",new Zip(123,"testcity"));
         addressDAO.saveAddress(savedAddress);
         Address actual = addressDAO.readAddress(1);
@@ -83,17 +77,36 @@ class AddressDAOTest {
 
     @Test
     void readAddress() {
+        Address savedAddress = new Address("Hillerødvej","1",new Zip(123,"testcity"));
+        addressDAO.saveAddress(savedAddress);
+        Address actual = addressDAO.readAddress(1);
+
+        assertEquals(savedAddress.getStreet(),actual.getStreet());
     }
 
     @Test
     void readAllAddresses() {
+        List<Address> addressList = addressDAO.readAllAddresses();
+
+        assertEquals("Hillerødvej",addressList.get(0).getStreet());
     }
 
     @Test
     void updateAddress() {
+        Address address = addressDAO.readAddress(1);
+        address.setStreet("hillerødvejen");
+
+        addressDAO.updateAddress(address);
+
+        assertEquals(addressDAO.readAddress(1).getStreet(),"hillerødvejen");
     }
 
     @Test
     void deleteAddress() {
+
+        addressDAO.deleteAddress(addressDAO.readAddress(1));
+        
+        assertNull(addressDAO.readAddress(1));
+
     }
 }
