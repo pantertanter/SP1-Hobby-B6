@@ -6,7 +6,7 @@ import org.example.model.Interest;
 
 import java.util.List;
 
-public class InterestDAO implements IInterest {
+public class InterestDAO implements IInterestDAO {
 
     private static EntityManagerFactory emf;
 

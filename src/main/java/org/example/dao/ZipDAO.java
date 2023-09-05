@@ -39,7 +39,7 @@ public class ZipDAO implements IZipDao{
     }
 
     @Override
-    public List<Zip> readAllZips(){
+    public List<Zip> readAllZips(){ // [US-7]
         try(EntityManager em = emf.createEntityManager()){
             return em.createNamedQuery("Zip.findAll", Zip.class).getResultList();
         }

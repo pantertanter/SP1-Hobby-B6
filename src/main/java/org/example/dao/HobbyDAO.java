@@ -2,13 +2,11 @@ package org.example.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import org.example.model.Address;
 import org.example.model.Hobby;
-import org.example.model.Interest;
 
 import java.util.List;
 
-public class HobbyDAO implements IHobby{
+public class HobbyDAO implements IHobbyDAO {
 
     private static EntityManagerFactory emf;
 

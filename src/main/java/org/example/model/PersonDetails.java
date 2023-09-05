@@ -11,6 +11,7 @@ public class PersonDetails {
     @Id
     private int id;
 
+    @Column(name = "phone", unique = true, nullable = false)
     private String phoneNumber;
 
     @OneToOne

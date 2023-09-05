@@ -1,11 +1,10 @@
 package org.example.dao;
 
 import org.example.model.Interest;
-import org.example.model.PersonDetails;
 
 import java.util.List;
 
-public interface IInterest {
+public interface IInterestDAO {
 
     public Interest saveInterest(Interest interest);
 
