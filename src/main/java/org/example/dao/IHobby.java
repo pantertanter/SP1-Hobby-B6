@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface IHobby {
 
-    public Address saveHobby(Hobby hobby);
+    public Hobby saveHobby(Hobby hobby);
 
-    public Address readHobby(int id);
+    public Hobby readHobby(String name);
 
     public List<Hobby> readAllHobbies();
 

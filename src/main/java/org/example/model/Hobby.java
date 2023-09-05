@@ -9,16 +9,14 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "hobby")
+@NamedQuery(name = "Hobby.findAll", query = "SELECT h FROM Hobby h")
 public class Hobby {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
     @Column(name = "name", unique = true, nullable = false)
     private String name;
 
-    @Column(name = "description", unique = true, nullable = false)
+    @Column(name = "description")
     private String description;
 
     @ManyToMany
