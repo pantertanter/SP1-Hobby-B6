@@ -1,25 +1,36 @@
 package org.example.model;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "interest")
+@NamedQuery(name = "Interest.findAll", query = "SELECT i FROM Interest i")
+@NoArgsConstructor
 public class Interest {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
     @Column(name = "name", unique = true, nullable = false)
     private String name;
 
-    @Column(name = "description", unique = true, nullable = false)
+    @Column(name = "description")
     private String description;
 
     @ManyToMany
     private Set<Person> persons = new HashSet<>();
 
+    public Interest(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

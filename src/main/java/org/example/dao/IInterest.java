@@ -1,18 +1,19 @@
 package org.example.dao;
 
+import org.example.model.Interest;
 import org.example.model.PersonDetails;
 
 import java.util.List;
 
 public interface IInterest {
 
-    public PersonDetails saveInterest(PersonDetails personDetails);
+    public Interest saveInterest(Interest interest);
 
-    public PersonDetails readInterest(int id);
+    public Interest readInterest(String name);
 
-    public List<PersonDetails> readAllInterest();
+    public List<Interest> readAllInterests();
 
-    public PersonDetails updateInterest(PersonDetails personDetails);
+    public Interest updateInterest(Interest interest);
 
-    public PersonDetails deleteInterest(PersonDetails personDetails);
+    public Interest deleteInterest(Interest interest);
 }

@@ -56,10 +56,6 @@ class ZipDAOTest {
     }
 
     @Test
-    void getInstance() {
-    }
-
-    @Test
     void saveZip() {
         Zip expected = new Zip(2100, "København Ø");
         zipDAO.saveZip(expected);
