@@ -1,0 +1,14 @@
+Our business idea is to delibver a platform for connecting people across ag and, hobbies
+and location, so that they(the customer) easily can socialize with other people of the same interesest in a
+relavent way, matching across the keyentities in their lives.
+Outside of these mentioned goals, we aim also to provide matchmaking concerning simular careers and interest,
+again making this a potent platform to connect.
+
+--------------------------------------------------------------------------------------------
+Each person can have more than one Hobbie, carreer and education.but there is a maximum.
+
+possibly in ENUMS
+
+
+
+  

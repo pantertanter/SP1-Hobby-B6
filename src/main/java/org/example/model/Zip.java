@@ -31,4 +31,17 @@ public class Zip {
 
     @OneToMany
     private List<Address> addresses;
+
+    public Zip(int zipCode, String city) {
+        this.zipCode = zipCode;
+        this.city = city;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String smørum) {
+        this.city = smørum;
+    }
 }
