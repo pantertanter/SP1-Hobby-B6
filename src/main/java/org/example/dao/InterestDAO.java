@@ -2,23 +2,21 @@ package org.example.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import org.example.model.Address;
 import org.example.model.Interest;
-import org.example.model.PersonDetails;
 
 import java.util.List;
 
-public class interestDAO implements IInterest {
+public class InterestDAO implements IInterest {
 
     private static EntityManagerFactory emf;
 
-    private static interestDAO instance;
+    private static InterestDAO instance;
 
     //singleton pattern
-    public static interestDAO getInstance(EntityManagerFactory _emf){
+    public static InterestDAO getInstance(EntityManagerFactory _emf){
         if(instance == null){
             emf = _emf;
-            instance = new interestDAO();
+            instance = new InterestDAO();
         }
         return instance;
     }

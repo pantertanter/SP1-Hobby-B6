@@ -6,17 +6,17 @@ import org.example.model.Zip;
 
 import java.util.List;
 
-public class zipDAO implements IZipDao{
+public class ZipDAO implements IZipDao{
 
     private static EntityManagerFactory emf;
 
-    private static zipDAO instance;
+    private static ZipDAO instance;
 
     //singleton pattern
-    public static zipDAO getInstance(EntityManagerFactory _emf){
+    public static ZipDAO getInstance(EntityManagerFactory _emf){
         if(instance == null){
             emf = _emf;
-            instance = new zipDAO();
+            instance = new ZipDAO();
         }
         return instance;
     }

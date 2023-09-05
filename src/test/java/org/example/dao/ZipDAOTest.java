@@ -13,12 +13,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ZipDAOTest {
 
-    private static zipDAO zipDAO;
+    private static ZipDAO zipDAO;
 
     @BeforeEach
     void setUp() {
 
-        zipDAO = org.example.dao.zipDAO.getInstance(HibernateConfigTest.getEntityManagerFactoryConfig());
+        zipDAO = ZipDAO.getInstance(HibernateConfigTest.getEntityManagerFactoryConfig());
 
         Zip zip1 = new Zip(3400, "Hillerød");
         Zip zip2 = new Zip(2200, "København N");

@@ -4,7 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import org.example.config.HibernateConfig;
 import org.example.model.Interest;
-import org.example.model.Zip;
+import org.example.testconfig.HibernateConfigTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,20 +13,13 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class interestDAOTest {
-
-    private static EntityManagerFactory emf;
-
-    private static EntityManager em;
-
-    private static interestDAO interestDAO;
+class InterestDAOTest {
+    private static InterestDAO interestDAO;
 
     @BeforeEach
     void setUp() {
 
-        emf = HibernateConfig.getEntityManagerFactoryConfig();
-        interestDAO = org.example.dao.interestDAO.getInstance(emf);
-        em = emf.createEntityManager();
+        interestDAO = org.example.dao.InterestDAO.getInstance(HibernateConfigTest.getEntityManagerFactoryConfig());
 
         Interest interest1 = new Interest("Football");
         Interest interest2 = new Interest("Handball");
@@ -43,7 +36,7 @@ class interestDAOTest {
 
     @AfterEach
     void tearDown() {
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = HibernateConfigTest.getEntityManagerFactoryConfig().createEntityManager();
 
         try {
             em.getTransaction().begin();
