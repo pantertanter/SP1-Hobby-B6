@@ -105,7 +105,7 @@ class AddressDAOTest {
     void deleteAddress() {
 
         addressDAO.deleteAddress(addressDAO.readAddress(1));
-        
+
         assertNull(addressDAO.readAddress(1));
 
     }

@@ -1,8 +1,11 @@
 package org.example.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
 @Entity
 @NoArgsConstructor
 @Table(name = "phone")
@@ -22,14 +25,6 @@ public class Phone {
     public Phone(String phoneNumber, String description) {
         this.phoneNumber = phoneNumber;
         this.description = description;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {

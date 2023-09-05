@@ -2,6 +2,7 @@ package org.example.model;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -32,6 +33,7 @@ public class Person {
     @Column(name = "created", nullable = false)
     private LocalDate created;
 
+    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     @OneToOne
     private PersonDetails personDetails;
 
@@ -54,5 +56,12 @@ public class Person {
         this.gender = gender;
         this.age = age;
         this.created = created;
+    }
+
+    public void setPersonDetails(PersonDetails personDetails) {
+        this.personDetails = personDetails;
+        if(personDetails != null){
+            personDetails.setPerson(this);
+        }
     }
 }
