@@ -19,14 +19,13 @@ import java.util.List;
 public class Zip {
 
     @Id
-    @Column(name = "zipCode", unique = true, nullable = false)
     private int zipCode;
 
     @Column(name = "city", unique = true, nullable = false)
     private String city;
 
     @OneToMany
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
     private List<Address> addresses;
 
     public Zip(int zipCode, String city) {

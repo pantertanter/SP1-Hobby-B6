@@ -66,22 +66,24 @@ class PersonDetailsDAOTest {
             em.getTransaction().begin();
 
 
-            em.createNativeQuery("DELETE FROM personDetails").executeUpdate();
+            em.createNativeQuery("DELETE FROM person_hobby").executeUpdate();
+            em.createNativeQuery("DELETE FROM person_interest").executeUpdate();
             em.createNativeQuery("DELETE FROM person").executeUpdate();
+            em.createNativeQuery("DELETE FROM persondetails_phone").executeUpdate();
+            em.createNativeQuery("DELETE FROM persondetails").executeUpdate();
             em.createNativeQuery("DELETE FROM address").executeUpdate();
+            em.createNativeQuery("DELETE FROM zip_address").executeUpdate();
             em.createNativeQuery("DELETE FROM zip").executeUpdate();
 
-            /*
-            em.createNativeQuery("DELETE FROM address").executeUpdate();
+
+            em.createNativeQuery("DELETE FROM hobby_person").executeUpdate();
             em.createNativeQuery("DELETE FROM hobby").executeUpdate();
+            em.createNativeQuery("DELETE FROM interest_person").executeUpdate();
             em.createNativeQuery("DELETE FROM interest").executeUpdate();
-            em.createNativeQuery("DELETE FROM person").executeUpdate();
-            em.createNativeQuery("DELETE FROM person").executeUpdate();
-            em.createNativeQuery("DELETE FROM personDetails").executeUpdate();
-            em.createNativeQuery("DELETE FROM profession").executeUpdate();
-            em.createNativeQuery("DELETE FROM zip").executeUpdate();
             em.createNativeQuery("DELETE FROM phone").executeUpdate();
-             */
+            em.createNativeQuery("DELETE FROM profession_person").executeUpdate();
+            em.createNativeQuery("DELETE FROM profession").executeUpdate();
+
 
             em.createNativeQuery("ALTER SEQUENCE address_id_seq RESTART WITH 1").executeUpdate();
             em.createNativeQuery("ALTER SEQUENCE person_id_seq RESTART WITH 1").executeUpdate();
@@ -97,6 +99,17 @@ class PersonDetailsDAOTest {
 
     @Test
     void savePersonDetails() {
+
+        Zip zip3 = new Zip(1234, "testcity");
+        Address address3 = new Address("teststreet","99",zip3);
+        PersonDetails pd3 = new PersonDetails("smp@mail.com", PersonDetails.Gender.MALE, 26, LocalDate.now(), new HashSet<>(),address3);
+
+        Person p3 = new Person("person3");
+        p3.setPersonDetails(pd3);
+
+        personDetailsDAO.savePersonDetails(pd3);
+
+        assertEquals(personDetailsDAO.readPersonDetails(3).getEmail(),"smp@mail.com");
 
     }
 
