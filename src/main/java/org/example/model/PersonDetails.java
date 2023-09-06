@@ -33,17 +33,16 @@ public class PersonDetails {
     @Column(name = "created", nullable = false)
     private LocalDate created;
 
-    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     private Set<Phone> phoneSet = new HashSet<>();
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Address address;
 
 
     @Setter
     @MapsId
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Person person;
     public void addPhone(Phone phone){
         phoneSet.add(phone);

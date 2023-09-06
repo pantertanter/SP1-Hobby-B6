@@ -27,6 +27,7 @@ public class Address {
     private String houseNumber;
 
     @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     private Zip zip;
 
     //@MapsId

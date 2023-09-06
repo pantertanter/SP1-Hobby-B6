@@ -21,8 +21,7 @@ public class Person {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private PersonDetails personDetails;
 
     @ManyToOne
