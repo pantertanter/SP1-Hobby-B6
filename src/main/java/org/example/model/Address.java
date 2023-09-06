@@ -17,20 +17,17 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-
     @Setter
-    @Column(name = "street", nullable = false)
+    @Column(nullable = false)
     private String street;
 
     @Setter
-    @Column(name = "houseNumber", nullable = false)
+    @Column(nullable = false)
     private String houseNumber;
 
-    @ManyToOne
-    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Zip zip;
 
-    //@MapsId
     @OneToOne
     private PersonDetails personDetails;
 

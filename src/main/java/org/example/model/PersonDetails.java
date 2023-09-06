@@ -21,36 +21,30 @@ public class PersonDetails {
     @Id
     private int id;
 
-    @Column(name = "email", unique = true, nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
 
     @Column(name = "gender", nullable = false)
     private PersonDetails.Gender gender;
+    public enum Gender {
+        MALE, FEMALE, OTHER
+    }
 
-    @Column(name = "age")
     private int age;
 
-    @Column(name = "created", nullable = false)
+    @Column(nullable = false)
     private LocalDate created;
 
-    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     private Set<Phone> phoneSet = new HashSet<>();
 
     @OneToOne
     private Address address;
 
-
     @Setter
     @OneToOne(mappedBy = "personDetails", cascade = CascadeType.PERSIST)
     private Person person;
-    public void addPhone(Phone phone){
-        phoneSet.add(phone);
-    }
 
-    public enum Gender {
-        MALE, FEMALE, OTHER
-    }
 
     public PersonDetails(String email, PersonDetails.Gender gender, int age, LocalDate created, Set<Phone> phoneSet, Address address) {
         this.email = email;
@@ -60,4 +54,10 @@ public class PersonDetails {
         this.phoneSet = phoneSet;
         this.address = address;
     }
+
+
+    public void addPhone(Phone phone){
+        phoneSet.add(phone);
+    }
+
 }

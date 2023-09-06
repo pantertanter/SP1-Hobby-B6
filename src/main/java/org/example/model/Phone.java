@@ -16,10 +16,9 @@ public class Phone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "phone_number", unique = true, nullable = false)
+    @Column(unique = true, nullable = false)
     private String phoneNumber;
 
-    @Column(name = "description")
     private String description;
 
     public Phone(String phoneNumber, String description) {
@@ -27,11 +26,11 @@ public class Phone {
         this.description = description;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public Phone(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public Phone(String phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }

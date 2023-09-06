@@ -3,6 +3,7 @@ package org.example.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Cascade;
 
 import java.util.List;
@@ -21,11 +22,11 @@ public class Zip {
     @Id
     private int zipCode;
 
-    @Column(name = "city", unique = true, nullable = false)
+    @Setter
+    @Column(unique = true, nullable = false)
     private String city;
 
-    @OneToMany
-    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.REMOVE)
     private List<Address> addresses;
 
     public Zip(int zipCode, String city) {
@@ -33,7 +34,4 @@ public class Zip {
         this.city = city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
 }

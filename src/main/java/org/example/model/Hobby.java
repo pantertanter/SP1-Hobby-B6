@@ -1,22 +1,25 @@
 package org.example.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
 @NoArgsConstructor
 @Entity
 @Table(name = "hobby")
 @NamedQuery(name = "Hobby.findAll", query = "SELECT h FROM Hobby h")
 public class Hobby {
 
+    @Setter
     @Id
-    @Column(name = "name", unique = true, nullable = false)
+    @Column(unique = true, nullable = false)
     private String name;
 
-    @Column(name = "description")
     private String description;
 
     @ManyToMany
@@ -26,11 +29,4 @@ public class Hobby {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
