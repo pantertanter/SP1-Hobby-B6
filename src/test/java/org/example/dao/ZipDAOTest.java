@@ -25,6 +25,7 @@ class ZipDAOTest {
         Zip zip3 = new Zip(2400, "København NV");
         Zip zip4 = new Zip(1453, "København K");
         Zip zip5 = new Zip(3460, "Birkerød");
+
         zipDAO.saveZip(zip1);
         zipDAO.saveZip(zip2);
         zipDAO.saveZip(zip3);
