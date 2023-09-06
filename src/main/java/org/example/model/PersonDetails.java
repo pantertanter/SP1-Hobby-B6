@@ -25,9 +25,9 @@ public class PersonDetails {
     private String email;
 
     @Column(name = "gender", nullable = false)
-    private Person.Gender gender;
+    private PersonDetails.Gender gender;
 
-    @Column(name = "age", nullable = false)
+    @Column(name = "age")
     private int age;
 
     @Column(name = "created", nullable = false)
@@ -49,7 +49,11 @@ public class PersonDetails {
         phoneSet.add(phone);
     }
 
-    public PersonDetails(String email, Person.Gender gender, int age, LocalDate created, Set<Phone> phoneSet, Address address) {
+    public enum Gender {
+        MALE, FEMALE, OTHER
+    }
+
+    public PersonDetails(String email, PersonDetails.Gender gender, int age, LocalDate created, Set<Phone> phoneSet, Address address) {
         this.email = email;
         this.gender = gender;
         this.age = age;

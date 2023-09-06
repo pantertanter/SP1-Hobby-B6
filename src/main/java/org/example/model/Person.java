@@ -34,10 +34,6 @@ public class Person {
     @ManyToMany
     private Set<Interest> interests = new HashSet<>();
 
-    public enum Gender {
-    MALE, FEMALE, OTHER
-    }
-
     public Person(String name) {
         this.name = name;
     }

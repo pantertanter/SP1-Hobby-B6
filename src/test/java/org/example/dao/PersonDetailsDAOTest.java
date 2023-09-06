@@ -46,8 +46,8 @@ class PersonDetailsDAOTest {
         myPhoneSet2.add(phone3);
         myPhoneSet2.add(phone4);
 
-        PersonDetails pd1 = new PersonDetails("pd1@email.com", Person.Gender.MALE, 35, LocalDate.of(2023,9,6), myPhoneSet, address1);
-        PersonDetails pd2 = new PersonDetails("pd2@email.com", Person.Gender.MALE, 40, LocalDate.of(2023,9,5), myPhoneSet2, address2);
+        PersonDetails pd1 = new PersonDetails("pd1@email.com", PersonDetails.Gender.MALE, 35, LocalDate.of(2023,9,6), myPhoneSet, address1);
+        PersonDetails pd2 = new PersonDetails("pd2@email.com", PersonDetails.Gender.MALE, 40, LocalDate.of(2023,9,5), myPhoneSet2, address2);
 
         pd1.setPerson(p1);
         pd2.setPerson(p2);
@@ -85,6 +85,7 @@ class PersonDetailsDAOTest {
 
             em.createNativeQuery("ALTER SEQUENCE address_id_seq RESTART WITH 1").executeUpdate();
             em.createNativeQuery("ALTER SEQUENCE person_id_seq RESTART WITH 1").executeUpdate();
+            em.createNativeQuery("ALTER SEQUENCE phone_id_seq RESTART WITH 1").executeUpdate();
 
             em.getTransaction().commit();
         }
