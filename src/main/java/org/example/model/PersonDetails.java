@@ -42,8 +42,7 @@ public class PersonDetails {
 
 
     @Setter
-    @MapsId
-    @OneToOne
+    @OneToOne(mappedBy = "personDetails", cascade = CascadeType.PERSIST)
     private Person person;
     public void addPhone(Phone phone){
         phoneSet.add(phone);

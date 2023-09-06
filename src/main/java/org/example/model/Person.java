@@ -23,6 +23,7 @@ public class Person {
 
     @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     @OneToOne
+    @MapsId
     private PersonDetails personDetails;
 
     @ManyToOne
@@ -51,5 +52,15 @@ public class Person {
 
     public String getName() {
         return name;
+    }
+
+    public Person(String name, PersonDetails personDetails,
+                  Profession profession, Set<Hobby> hobby,
+                  Set<Interest> interests) {
+        this.name = name;
+        setPersonDetails(personDetails);
+        this.profession = profession;
+        this.hobby = hobby;
+        this.interests = interests;
     }
 }
