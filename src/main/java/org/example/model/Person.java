@@ -30,7 +30,7 @@ public class Person {
     private Profession profession;
 
     @ManyToMany
-    private Set<Hobby> hobby = new HashSet<>();
+    private Set<Hobby> hobbies = new HashSet<>();
 
     @ManyToMany
     private Set<Interest> interests = new HashSet<>();
@@ -41,8 +41,26 @@ public class Person {
 
     public void setPersonDetails(PersonDetails personDetails) {
         this.personDetails = personDetails;
-        if(personDetails != null){
+        if (personDetails != null) {
             personDetails.setPerson(this);
+        }
+    }
+
+    public void setHobbies(Set<Hobby> hobbies) {
+        this.hobbies = hobbies;
+        if (hobbies != null) {
+            for (Hobby h : hobbies) {
+                h.getPersons().add(this); // Establish the bidirectional relationship
+            }
+        }
+    }
+
+    public void setInterests(Set<Interest> interests) {
+        this.interests = interests;
+        if (interests != null) {
+            for (Interest i : interests) {
+                i.getPersons().add(this); // Establish the bidirectional relationship
+            }
         }
     }
 
@@ -54,13 +72,7 @@ public class Person {
         return name;
     }
 
-    public Person(String name, PersonDetails personDetails,
-                  Profession profession, Set<Hobby> hobby,
-                  Set<Interest> interests) {
-        this.name = name;
-        setPersonDetails(personDetails);
+    public void setProfession(Profession profession) {
         this.profession = profession;
-        this.hobby = hobby;
-        this.interests = interests;
     }
 }

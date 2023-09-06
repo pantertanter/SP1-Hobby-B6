@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
 
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
-                EntityManager em = emf.createEntityManager();
+        EntityManager em = emf.createEntityManager();
         Phone phone1 = new Phone("28367463");
         Phone phone2 = new Phone("73848493");
 
@@ -73,18 +73,22 @@ public class Main {
         Profession profession1 = new Profession("Teacher");
         Profession profession2 = new Profession("Engineer");
 
+        Person person1 = new Person("Alex");
+        Person person2 = new Person("Bob");
+
+        person1.setPersonDetails(personDetails1);
+        person1.setHobbies(myHobbySet1);
+        person1.setInterests(myInterestSet1);
+        person1.setProfession(profession1);
+
+        person2.setPersonDetails(personDetails2);
+        person2.setHobbies(myHobbySet2);
+        person2.setInterests(myInterestSet2);
+        person2.setProfession(profession2);
 
 
-        Person person1 = new Person("Alex", personDetails1,
-                profession1, myHobbySet1,
-                myInterestSet1);
-        Person person2 = new Person("Bob", personDetails2,
-                profession2, myHobbySet2,
-                myInterestSet2);
-
-        em.getTransaction().begin();
-        em.persist(person1);
-        em.getTransaction().commit();
+//        personDAO.savePerson(person1);
+//        personDAO.savePerson(person2);
 
         System.out.println("Hello world!");
     }

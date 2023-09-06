@@ -33,4 +33,14 @@ public class Hobby {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setPersons(Set<Person> persons) {
+        this.persons = persons;
+    }
+
+    public Set<Person> getPersons() {
+        return persons;
+    }
+
+
 }
