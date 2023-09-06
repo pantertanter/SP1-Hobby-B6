@@ -69,10 +69,21 @@ public class PersonDAO implements IPersonDAO {
 
     @Override
     public List<Person> readAllPersonsByHobby(Hobby hobby) { // [US-3]
-        return null;
+        try (EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Person> query = em.createQuery("SELECT p FROM Person p JOIN p.hobbies h WHERE h.name = :hobbyName", Person.class);
+            query.setParameter("hobbyName", hobby.getName());
+
+            List<Person> resultList = query.getResultList();
+
+            for (Person person : resultList) {
+                System.out.println(person);
+            }
+
+            return resultList;
+        }
     }
 
-    @Override
+        @Override
     public List<Person> countOfPersonsWithHobby(Hobby hobby) { //[US-4]
         return null;
     }

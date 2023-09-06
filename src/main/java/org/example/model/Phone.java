@@ -30,4 +30,8 @@ public class Phone {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public Phone(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

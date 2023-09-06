@@ -8,6 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,8 +22,8 @@ class PersonDetailsDAOTest {
 
         personDetailsDAO = PersonDetailsDAO.getInstance(HibernateConfigTest.getEntityManagerFactoryConfig());
 
-        Person p1 = new Person("person1","email1@mail.com", Person.Gender.MALE,20, LocalDate.now());
-        Person p2 = new Person("person2","email2@mail.com", Person.Gender.FEMALE,30,LocalDate.now());
+        Person p1 = new Person("person1");
+        Person p2 = new Person("person2");
 
 
         Zip zip1 = new Zip(3400, "Hillerød");
@@ -30,8 +32,22 @@ class PersonDetailsDAOTest {
         Address address1 = new Address("Hillerødvej","1",zip1);
         Address address2 = new Address("Nørregade","2",zip2);
 
-        PersonDetails pd1 = new PersonDetails(address1);
-        PersonDetails pd2 = new PersonDetails(address2);
+        Phone phone1 = new Phone("28367463");
+        Phone phone2 = new Phone("73848493");
+
+        Phone phone3 = new Phone("82763587");
+        Phone phone4 = new Phone("87654567");
+
+        Set<Phone> myPhoneSet = new HashSet<>();
+        myPhoneSet.add(phone1);
+        myPhoneSet.add(phone2);
+
+        Set<Phone> myPhoneSet2 = new HashSet<>();
+        myPhoneSet2.add(phone3);
+        myPhoneSet2.add(phone4);
+
+        PersonDetails pd1 = new PersonDetails("pd1@email.com", Person.Gender.MALE, 35, LocalDate.of(2023,9,6), myPhoneSet, address1);
+        PersonDetails pd2 = new PersonDetails("pd2@email.com", Person.Gender.MALE, 40, LocalDate.of(2023,9,5), myPhoneSet2, address2);
 
         pd1.setPerson(p1);
         pd2.setPerson(p2);
