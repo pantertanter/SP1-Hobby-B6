@@ -165,8 +165,9 @@ class PersonDAOTest {
 
     @Test
     void readPerson() {
-        Person actual = personDAO.readPerson(1);
-        assertEquals("Alex", actual.getName());
+        Person actual = personDAO.readPerson(1); [US-1]
+        assertEquals("Teacher", actual.getProfession().getName());
+        System.out.println(actual);
     }
 
     @Test
@@ -177,14 +178,24 @@ class PersonDAOTest {
 
     @Test
     void updatePerson() {
+        Person person = personDAO.readPerson(1);
+        person.setName("Åge");
+        personDAO.updatePerson(person);
+        Person actual = personDAO.readPerson(1);
+        assertEquals("Åge", actual.getName());
     }
 
     @Test
     void deletePerson() {
+        Person person = personDAO.readPerson(1);
+        personDAO.deletePerson(person);
+        Person actual = personDAO.readPerson(1);
+        assertNull(actual);
     }
 
     @Test
     void readAllPersonsByHobby() {
+
     }
 
     @Test

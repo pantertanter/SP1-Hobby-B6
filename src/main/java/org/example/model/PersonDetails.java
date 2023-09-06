@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.Cascade;
 
 import java.time.LocalDate;
@@ -25,6 +26,7 @@ public class PersonDetails {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
+//    @Enumerated(EnumType.STRING)
     @Column(name = "gender", nullable = false)
     private PersonDetails.Gender gender;
 
@@ -35,7 +37,7 @@ public class PersonDetails {
     private LocalDate created;
 
     @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Phone> phoneSet = new HashSet<>();
 
     @OneToOne
