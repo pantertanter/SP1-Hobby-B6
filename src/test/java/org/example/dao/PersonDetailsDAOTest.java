@@ -49,10 +49,11 @@ class PersonDetailsDAOTest {
         try {
             em.getTransaction().begin();
 
-            em.createNativeQuery("DELETE FROM zip").executeUpdate();
-            em.createNativeQuery("DELETE FROM address").executeUpdate();
+
             em.createNativeQuery("DELETE FROM personDetails").executeUpdate();
             em.createNativeQuery("DELETE FROM person").executeUpdate();
+            em.createNativeQuery("DELETE FROM address").executeUpdate();
+            em.createNativeQuery("DELETE FROM zip").executeUpdate();
 
             /*
             em.createNativeQuery("DELETE FROM address").executeUpdate();
