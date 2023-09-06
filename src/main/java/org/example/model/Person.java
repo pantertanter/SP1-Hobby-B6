@@ -21,9 +21,7 @@ public class Person {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     @OneToOne
-    @MapsId
     private PersonDetails personDetails;
 
     @ManyToOne
@@ -75,4 +73,6 @@ public class Person {
     public void setProfession(Profession profession) {
         this.profession = profession;
     }
+
+
 }

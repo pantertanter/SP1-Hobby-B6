@@ -19,6 +19,7 @@ import java.util.Set;
 public class PersonDetails {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "email", unique = true, nullable = false)
@@ -42,6 +43,7 @@ public class PersonDetails {
 
 
     @Setter
+    @MapsId
     @OneToOne(mappedBy = "personDetails", cascade = CascadeType.PERSIST)
     private Person person;
     public void addPhone(Phone phone){
@@ -60,4 +62,6 @@ public class PersonDetails {
         this.phoneSet = phoneSet;
         this.address = address;
     }
+
+
 }

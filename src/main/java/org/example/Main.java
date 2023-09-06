@@ -14,6 +14,7 @@ public class Main {
 
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
         EntityManager em = emf.createEntityManager();
+
         Phone phone1 = new Phone("28367463");
         Phone phone2 = new Phone("73848493");
 
@@ -43,6 +44,7 @@ public class Main {
                 PersonDetails.Gender.MALE, 40,
                 LocalDate.of(2023, 9, 8),
                 myPhoneSet2, address2);
+
 
         Hobby hobby1 = new Hobby("Model-trains");
         Hobby hobby2 = new Hobby("Painting");
@@ -86,9 +88,33 @@ public class Main {
         person2.setInterests(myInterestSet2);
         person2.setProfession(profession2);
 
+        personDetails1.setPerson(person1);
+        personDetails2.setPerson(person2);
 
-//        personDAO.savePerson(person1);
-//        personDAO.savePerson(person2);
+        em.getTransaction().begin();
+        em.persist(phone1);
+        em.persist(phone2);
+        em.persist(phone3);
+        em.persist(phone4);
+        em.persist(zip1);
+        em.persist(zip2);
+        em.persist(hobby1);
+        em.persist(hobby2);
+        em.persist(hobby3);
+        em.persist(hobby4);
+        em.persist(interest1);
+        em.persist(interest2);
+        em.persist(interest3);
+        em.persist(interest4);
+        em.persist(profession1);
+        em.persist(profession2);
+        em.persist(address1);
+        em.persist(address2);
+        em.persist(personDetails1);
+        em.persist(personDetails2);
+        em.persist(person1);
+        em.persist(person2);
+        em.getTransaction().commit();
 
         System.out.println("Hello world!");
     }
