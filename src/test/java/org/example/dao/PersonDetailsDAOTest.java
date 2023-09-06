@@ -33,26 +33,11 @@ class PersonDetailsDAOTest {
         PersonDetails pd1 = new PersonDetails(address1);
         PersonDetails pd2 = new PersonDetails(address2);
 
-        Phone phone1 = new Phone("12345678","work");
-        Phone phone2 = new Phone("87654321","home");
+        pd1.setPerson(p1);
+        pd2.setPerson(p2);
 
-        pd1.addPhone(phone1);
-        pd2.addPhone(phone2);
-
-
-        PersonDAO personDAO = PersonDAO.getInstance(HibernateConfigTest.getEntityManagerFactoryConfig());
-        personDAO.savePerson(p1);
-        personDAO.savePerson(p2);
-
-
-        p1.setPersonDetails(pd1);
-        p2.setPersonDetails(pd2);
-
-        personDAO.updatePerson(p1);
-        personDAO.updatePerson(p2);
-        /*
         personDetailsDAO.savePersonDetails(pd1);
-        personDetailsDAO.savePersonDetails(pd2);*/
+        personDetailsDAO.savePersonDetails(pd2);
 
 
     }
@@ -63,6 +48,13 @@ class PersonDetailsDAOTest {
         EntityManager em = HibernateConfigTest.getEntityManagerFactoryConfig().createEntityManager();
         try {
             em.getTransaction().begin();
+
+            em.createNativeQuery("DELETE FROM zip").executeUpdate();
+            em.createNativeQuery("DELETE FROM address").executeUpdate();
+            em.createNativeQuery("DELETE FROM personDetails").executeUpdate();
+            em.createNativeQuery("DELETE FROM person").executeUpdate();
+
+            /*
             em.createNativeQuery("DELETE FROM address").executeUpdate();
             em.createNativeQuery("DELETE FROM hobby").executeUpdate();
             em.createNativeQuery("DELETE FROM interest").executeUpdate();
@@ -72,6 +64,7 @@ class PersonDetailsDAOTest {
             em.createNativeQuery("DELETE FROM profession").executeUpdate();
             em.createNativeQuery("DELETE FROM zip").executeUpdate();
             em.createNativeQuery("DELETE FROM phone").executeUpdate();
+             */
 
             em.createNativeQuery("ALTER SEQUENCE address_id_seq RESTART WITH 1").executeUpdate();
             em.createNativeQuery("ALTER SEQUENCE person_id_seq RESTART WITH 1").executeUpdate();

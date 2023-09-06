@@ -48,14 +48,14 @@ class AddressDAOTest {
         try {
             em.getTransaction().begin();
             em.createNativeQuery("DELETE FROM address").executeUpdate();
-            em.createNativeQuery("DELETE FROM hobby").executeUpdate();
-            em.createNativeQuery("DELETE FROM interest").executeUpdate();
-            em.createNativeQuery("DELETE FROM person").executeUpdate();
-            em.createNativeQuery("DELETE FROM person").executeUpdate();
-            em.createNativeQuery("DELETE FROM personDetails").executeUpdate();
-            em.createNativeQuery("DELETE FROM profession").executeUpdate();
+            //em.createNativeQuery("DELETE FROM hobby").executeUpdate();
+            //em.createNativeQuery("DELETE FROM interest").executeUpdate();
+            //em.createNativeQuery("DELETE FROM person").executeUpdate();
+            //em.createNativeQuery("DELETE FROM person").executeUpdate();
+            //em.createNativeQuery("DELETE FROM personDetails").executeUpdate();
+            //em.createNativeQuery("DELETE FROM profession").executeUpdate();
             em.createNativeQuery("DELETE FROM zip").executeUpdate();
-            em.createNativeQuery("DELETE FROM phone").executeUpdate();
+            //em.createNativeQuery("DELETE FROM phone").executeUpdate();
 
             em.createNativeQuery("ALTER SEQUENCE address_id_seq RESTART WITH 1").executeUpdate();
 

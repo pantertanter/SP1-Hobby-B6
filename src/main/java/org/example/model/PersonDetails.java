@@ -23,9 +23,9 @@ public class PersonDetails {
     @OneToMany
     private Set<Phone> phoneSet = new HashSet<>();
 
-    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     @OneToOne
     private Address address;
+
 
     @Setter
     @MapsId

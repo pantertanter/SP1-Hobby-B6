@@ -18,16 +18,16 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name", unique = true, nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "gender", unique = true, nullable = false)
+    @Column(name = "gender", nullable = false)
     private Gender gender;
 
-    @Column(name = "age", unique = true, nullable = false)
+    @Column(name = "age", nullable = false)
     private int age;
 
     @Column(name = "created", nullable = false)
