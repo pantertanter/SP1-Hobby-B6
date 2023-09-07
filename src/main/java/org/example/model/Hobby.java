@@ -15,6 +15,7 @@ import java.util.Set;
 @NamedQuery(name = "Hobby.findAll", query = "SELECT h FROM Hobby h")
 public class Hobby {
 
+    @Setter
     @Id
     @Column(name = "name", unique = true, nullable = false)
     private String name;
