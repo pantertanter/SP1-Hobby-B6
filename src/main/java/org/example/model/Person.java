@@ -51,9 +51,6 @@ public class Person {
         created = LocalDate.now();
     }
 
-
-
-
     public void setPersonDetails(PersonDetails personDetails) {
         this.personDetails = personDetails;
         if (personDetails != null) {
@@ -104,7 +101,7 @@ public class Person {
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", personDetails= " + "Email: " + personDetails.getEmail() + " Gender: " + personDetails.getGender() + " Age: " + personDetails.getAge() + " Created: " + personDetails.getCreated() + " Phone: " +
+                ", personDetails= " + "Email: " + personDetails.getEmail() + " Gender: " + personDetails.getGender() + " Age: " + personDetails.getAge() + " Created: " + personDetails.getCreated() +
                 '}';
     }
 }
