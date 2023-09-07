@@ -29,8 +29,19 @@ public class Main {
 
         getAllHobbiesAndCountOfInterested();
 
+        getAllZipsAndCities(); // [US-7] As a user I want to get a list of all postcodes and city names in Denmark
+
         
 
+    }
+
+    private static void getAllZipsAndCities() {
+        try (var em = emf.createEntityManager()) {
+            TypedQuery<Zip> query = em.createQuery("SELECT z FROM Zip z", Zip.class);
+            List<Zip> zips = query.getResultList();
+            zips.forEach(zip -> System.out.println(zip.getCity() + " " + zip.getZipCode()));
+
+        }
     }
 
     private static void getAllHobbiesAndCountOfInterested() {
