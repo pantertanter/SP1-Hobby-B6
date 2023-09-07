@@ -15,9 +15,9 @@ again making this a potent platform to connect.
 --------------------------------------------------------------------------------------------    
 **A group description of your group work and how you have collaborated**
 We meet up at school each day and collaborated by helping and discussing with issues. When we went home we had distributed responsibility, so that
-we could work focused on different tasks and then merge our work together the next day. We used Discord to comunicate and the tone in the group,
+we could work focused on different tasks and then merge our work together the next day. We used Discord to communicate and the tone in the group,
 was pleasent the whole time. We both worked on different task and on the same, when were together at school. This collaboration worked out pretty well.
-We could have been more focused on the task(User stories and requirements) from the beginning, so that we could have been more productive in concers with reaching,
+We could have been more focused on the task(User stories and requirements) from the beginning, so that we could have been more productive in reaching,
 the assignment goals. We have learned a lot from this assignment and will learn furthermore from it in the future, we believe.
 
 

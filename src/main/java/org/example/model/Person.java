@@ -51,6 +51,10 @@ public class Person {
         created = LocalDate.now();
     }
 
+    public PersonDetails getPersonDetails() {
+        return personDetails;
+    }
+
     public void setPersonDetails(PersonDetails personDetails) {
         this.personDetails = personDetails;
         if (personDetails != null) {
