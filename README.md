@@ -21,7 +21,7 @@ We could have been more focused on the task(User stories and requirements) from 
 the assignment goals. We have learned a lot from this assignment and will learn furthermore from it in the future, we believe.
 
 
-**The points below are the requirements for the project, that we have to meet.** <br>
+**The points below are the requirements for the project, that we have to meet.** <br> <br>
 [R-1] The project must include the following technologies <br>
 JPA, 
 JPQL, 
@@ -31,7 +31,7 @@ JUnit 5,
 Docker, 
 PostgresSQL, 
 pgAdmin, 
-Lombok <br>
+Lombok <br> <br>
 [R-2] The project must contain a meaningful EER-diagram (use pgAdmin to create the diagram) <br>
 [R-3] The project must be documented in a README.md file(*) <br>
 [R-4] The project must contain meaningful unit tests. (70 - 80 % of the methods must be tested (DAO, Entity ...)) <br>
