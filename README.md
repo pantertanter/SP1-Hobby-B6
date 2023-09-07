@@ -23,14 +23,14 @@ the assignment goals. We have learned a lot from this assignment and will learn 
 
 **The points below are the requirements for the project, that we have to meet.** <br>
 [R-1] The project must include the following technologies <br>
-JPA <br>
-JPQL <br>
-Maven <br>
-JDK 17^ <br>
-JUnit 5 <br>
-Docker <br>
-PostgresSQL <br>
-pgAdmin <br>
+JPA, 
+JPQL, 
+Maven, 
+JDK 17, 
+JUnit 5,
+Docker, 
+PostgresSQL, 
+pgAdmin, 
 Lombok <br>
 [R-2] The project must contain a meaningful EER-diagram (use pgAdmin to create the diagram) <br>
 [R-3] The project must be documented in a README.md file(*) <br>
