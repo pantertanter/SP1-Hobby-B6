@@ -124,7 +124,14 @@ class PersonDetailsDAOTest {
         Person p3 = new Person("person3");
         p3.setPersonDetails(pd3);
 
+
         personDetailsDAO.savePersonDetails(pd3);
+
+        try(EntityManager em = HibernateConfigTest.getEntityManagerFactoryConfig().createEntityManager()){
+            em.getTransaction().begin();
+            em.persist(p3);
+            em.getTransaction().commit();
+        }
 
         assertEquals(personDetailsDAO.readPersonDetails(3).getEmail(),"smp@mail.com");
 
