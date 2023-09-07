@@ -1,4 +1,4 @@
-**A description of our business idea**
+**A description of our business idea:** <br>
 Our business idea is to deliver a platform for connecting people across age, hobbies
 and location, so that they(the customer) easily can socialize with other people of the same interest in a
 relevant way, matching across the key entities in their lives.
@@ -13,7 +13,7 @@ again making this a potent platform to connect.
 ![Initial EER Diagram from draw.io](https://github.com/pantertanter/SP1-Hobby-B6/blob/main/Initial%20EER%20Diagram.png)
 
 --------------------------------------------------------------------------------------------    
-**A group description of your group work and how you have collaborated**
+**A group description of your group work and how you have collaborated:** <br>
 We meet up at school each day and collaborated by helping and discussing with issues. When we went home we had distributed responsibility, so that
 we could work focused on different tasks and then merge our work together the next day. We used Discord to communicate and the tone in the group,
 was pleasent the whole time. We both worked on different task and on the same, when were together at school. This collaboration worked out pretty well.
@@ -22,7 +22,7 @@ the assignment goals. We have learned a lot from this assignment and will learn 
 
 
 **The points below are the requirements for the project, that we have to meet.** <br> <br>
-[R-1] The project must include the following technologies <br>
+[R-1] The project must include the following technologies: 
 JPA, 
 JPQL, 
 Maven, 
@@ -31,7 +31,7 @@ JUnit 5,
 Docker, 
 PostgresSQL, 
 pgAdmin, 
-Lombok <br> <br>
+Lombok <br>
 [R-2] The project must contain a meaningful EER-diagram (use pgAdmin to create the diagram) <br>
 [R-3] The project must be documented in a README.md file(*) <br>
 [R-4] The project must contain meaningful unit tests. (70 - 80 % of the methods must be tested (DAO, Entity ...)) <br>
