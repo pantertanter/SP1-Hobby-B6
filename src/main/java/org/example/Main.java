@@ -19,9 +19,35 @@ public class Main {
 
         findAllInfoAboutPerson();
 
+<<<<<<< Updated upstream
 
 
         
+=======
+        getPersonsFromHobby();
+
+        getPersonsInterestedFromHobby();
+
+
+    }
+
+    private static void getPersonsInterestedFromHobby() {
+        try(var em = emf.createEntityManager()){
+            Hobby modelTrains = em.find(Hobby.class,"Painting");
+
+            System.out.println("Number of People Interested In Painting: " + modelTrains.getPersons().size());
+        }
+    }
+
+    private static void getPersonsFromHobby() {
+        try(var em = emf.createEntityManager()){
+            Hobby modelTrains = em.find(Hobby.class,"Model-trains");
+
+            for(Person p : modelTrains.getPersons()){
+                System.out.println("PERSON INTERESTED IN MODEL TRAINS: " + p);
+            }
+        }
+>>>>>>> Stashed changes
     }
 
     private static void findAllInfoAboutPerson() {

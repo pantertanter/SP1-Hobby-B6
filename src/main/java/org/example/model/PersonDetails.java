@@ -45,7 +45,7 @@ public class PersonDetails {
 
 
     @Setter
-    @MapsId
+//    @MapsId
     @OneToOne(mappedBy = "personDetails", cascade = CascadeType.ALL)
     private Person person;
     public void addPhone(Phone phone){
