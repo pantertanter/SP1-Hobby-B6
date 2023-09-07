@@ -46,13 +46,13 @@ class PersonDAOTest {
 
         PersonDetails personDetails1 = new PersonDetails("Alex@Mail.com",
                 PersonDetails.Gender.MALE, 35,
-                LocalDate.of(2023, 9, 7),
-                myPhoneSet, address1);
+                LocalDate.of(2023, 9, 7),address1);
+        personDetails1.setPhoneSet(myPhoneSet);
 
         PersonDetails personDetails2 = new PersonDetails("Bob@Mail.com",
                 PersonDetails.Gender.MALE, 40,
-                LocalDate.of(2023, 9, 8),
-                myPhoneSet2, address2);
+                LocalDate.of(2023, 9, 8), address2);
+        personDetails2.setPhoneSet(myPhoneSet2);
 
 
         Hobby hobby1 = new Hobby("Model-trains");
