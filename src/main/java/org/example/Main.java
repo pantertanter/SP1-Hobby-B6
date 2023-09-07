@@ -7,6 +7,7 @@ import org.example.model.*;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Main {
@@ -25,7 +26,27 @@ public class Main {
 
         getPersonsInterestedFromHobby();
 
+        getPersonsInCity();
 
+
+    }
+
+    private static void getPersonsInCity() {
+        try(var em = emf.createEntityManager()){
+            Zip hillerød = em.find(Zip.class,3400);
+
+            Set<Person> inHillerød = new HashSet<>();
+
+            List<Address> addresses = hillerød.getAddresses();
+
+            for(Address a : addresses){
+                inHillerød.add(a.getPersonDetails().getPerson());
+            }
+
+            for(Person p : inHillerød){
+                System.out.println("Lives In Hillerød: " + p);
+            }
+        }
     }
 
     private static void getPersonsInterestedFromHobby() {
