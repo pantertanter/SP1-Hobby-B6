@@ -2,11 +2,13 @@ package org.example;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.TypedQuery;
 import org.example.config.HibernateConfig;
 import org.example.model.*;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Main {
@@ -25,7 +27,18 @@ public class Main {
 
         getPersonsInterestedFromHobby();
 
+        getAllHobbiesAndCountOfInterested();
 
+        
+
+    }
+
+    private static void getAllHobbiesAndCountOfInterested() {
+        try(var em = emf.createEntityManager()) {
+            TypedQuery<Hobby> query = em.createQuery("SELECT h FROM Hobby h", Hobby.class);
+            List<Hobby> hobbies = query.getResultList();
+            hobbies.forEach(hobby -> System.out.println(hobby.getName() + " " + hobby.getPersons().size()));
+        }
     }
 
     private static void getPersonsInterestedFromHobby() {
