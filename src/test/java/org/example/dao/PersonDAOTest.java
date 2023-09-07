@@ -165,7 +165,7 @@ class PersonDAOTest {
 
     @Test
     void readPerson() {
-        Person actual = personDAO.readPerson(1); [US-1]
+        Person actual = personDAO.readPerson(1); //[US-1]
         assertEquals("Teacher", actual.getProfession().getName());
         System.out.println(actual);
     }
