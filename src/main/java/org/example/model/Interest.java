@@ -1,17 +1,21 @@
 package org.example.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
 @Entity
 @Table(name = "interest")
 @NamedQuery(name = "Interest.findAll", query = "SELECT i FROM Interest i")
 @NoArgsConstructor
 public class Interest {
 
+    @Setter
     @Id
     @Column(name = "name", unique = true, nullable = false)
     private String name;
@@ -26,15 +30,4 @@ public class Interest {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Set<Person> getPersons() {
-        return persons;
-    }
 }

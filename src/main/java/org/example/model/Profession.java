@@ -3,6 +3,7 @@ package org.example.model;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,13 +11,15 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "profession")
-@NamedQueries(@NamedQuery(name = "Profession.findAll", query = "SELECT p FROM Profession p"))
+@NamedQuery(name = "Profession.findAll", query = "SELECT p FROM Profession p")
 public class Profession {
 
+    @Setter
     @Id
     @Column(name = "name", unique = true, nullable = false)
     private String name;
 
+    @Setter
     @Column(name = "description")
     private String description;
 
@@ -31,19 +34,5 @@ public class Profession {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

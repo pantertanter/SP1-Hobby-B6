@@ -36,8 +36,7 @@ public class PersonDetails {
     @Column(name = "created", nullable = false)
     private LocalDate created;
 
-    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<Phone> phoneSet = new HashSet<>();
 
     @OneToOne
@@ -49,10 +48,6 @@ public class PersonDetails {
     private Person person;
     public void addPhone(Phone phone){
         phoneSet.add(phone);
-    }
-
-    public Set<Phone> getPhoneSet() {
-        return phoneSet;
     }
 
     public enum Gender {
