@@ -19,9 +19,20 @@ public class Main {
 
         findAllInfoAboutPerson();
 
+        getAllPhonesForAPerson();
+
+        //[US-6] As a user I want to get all persons living in a given city (i.e. 2800 Lyngby)
 
 
-        
+    }
+
+    private static void getAllPhonesForAPerson() {
+        try (var em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+            Person person = em.find(Person.class, 1);
+            person.getPersonDetails().getPhoneSet().forEach(System.out::println);
+            em.getTransaction().commit();
+        }
     }
 
     private static void findAllInfoAboutPerson() {

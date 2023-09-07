@@ -45,11 +45,14 @@ public class PersonDetails {
 
 
     @Setter
-    @MapsId
     @OneToOne(mappedBy = "personDetails", cascade = CascadeType.ALL)
     private Person person;
     public void addPhone(Phone phone){
         phoneSet.add(phone);
+    }
+
+    public Set<Phone> getPhoneSet() {
+        return phoneSet;
     }
 
     public enum Gender {

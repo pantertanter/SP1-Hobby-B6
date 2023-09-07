@@ -4,10 +4,12 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Entity
 @NoArgsConstructor
+@ToString
 @Table(name = "phone")
 @NamedQuery(name = "Phone.findAll", query = "SELECT p FROM Phone p")
 public class Phone {
