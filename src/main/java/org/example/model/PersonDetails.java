@@ -41,7 +41,7 @@ public class PersonDetails {
 
     @OneToOne
     private Address address;
-    
+
     @Setter
     @OneToOne(mappedBy = "personDetails", cascade = CascadeType.ALL)
     private Person person;
