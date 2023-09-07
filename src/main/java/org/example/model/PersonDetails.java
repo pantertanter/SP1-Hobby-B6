@@ -55,16 +55,22 @@ public class PersonDetails {
         return phoneSet;
     }
 
+    public void setPhoneSet(Set<Phone> phoneSet) {
+        this.phoneSet = phoneSet;
+        for(Phone phone : phoneSet){
+            phone.setPersonDetails(this);
+        }
+    }
+
     public enum Gender {
         MALE, FEMALE, OTHER
     }
 
-    public PersonDetails(String email, PersonDetails.Gender gender, int age, LocalDate created, Set<Phone> phoneSet, Address address) {
+    public PersonDetails(String email, PersonDetails.Gender gender, int age, LocalDate created, Address address) {
         this.email = email;
         this.gender = gender;
         this.age = age;
         this.created = created;
-        this.phoneSet = phoneSet;
         this.address = address;
     }
 

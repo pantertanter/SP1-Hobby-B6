@@ -2,6 +2,7 @@ package org.example.model;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.Set;
 @Table(name = "interest")
 @NamedQuery(name = "Interest.findAll", query = "SELECT i FROM Interest i")
 @NoArgsConstructor
+@ToString
 public class Interest {
 
     @Id

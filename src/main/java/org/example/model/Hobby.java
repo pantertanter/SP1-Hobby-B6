@@ -2,6 +2,7 @@ package org.example.model;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,6 +10,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "hobby")
+@ToString
 @NamedQuery(name = "Hobby.findAll", query = "SELECT h FROM Hobby h")
 public class Hobby {
 

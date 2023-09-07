@@ -24,6 +24,16 @@ public class Phone {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    private PersonDetails personDetails;
+
+    public void setPersonDetails(PersonDetails personDetails) {
+        this.personDetails = personDetails;
+        if (personDetails != null) {
+            personDetails.addPhone(this);
+        }
+    }
+
     public Phone(String phoneNumber, String description) {
         this.phoneNumber = phoneNumber;
         this.description = description;
@@ -36,4 +46,6 @@ public class Phone {
     public Phone(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+
 }

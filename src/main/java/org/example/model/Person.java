@@ -1,6 +1,7 @@
 package org.example.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.annotations.Cascade;
@@ -31,9 +32,11 @@ public class Person {
     @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private Profession profession;
 
+    @Getter
     @ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private Set<Hobby> hobbies = new HashSet<>();
 
+    @Getter
     @ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private Set<Interest> interests = new HashSet<>();
 
