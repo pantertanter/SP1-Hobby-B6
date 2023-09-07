@@ -3,6 +3,7 @@ package org.example.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.Cascade;
 
@@ -10,16 +11,19 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
 @NoArgsConstructor
+@ToString
 @Entity
 @Table(name = "person")
-@NamedQueries(@NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p"))
+@NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p")
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Setter
     @Column(name = "name", nullable = false)
     private String name;
 
@@ -29,6 +33,7 @@ public class Person {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private PersonDetails personDetails;
 
+    @Setter
     @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private Profession profession;
 
@@ -54,10 +59,6 @@ public class Person {
         created = LocalDate.now();
     }
 
-    public PersonDetails getPersonDetails() {
-        return personDetails;
-    }
-
     public void setPersonDetails(PersonDetails personDetails) {
         this.personDetails = personDetails;
         if (personDetails != null) {
@@ -81,34 +82,5 @@ public class Person {
                 i.getPersons().add(this); // Establish the bidirectional relationship
             }
         }
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setProfession(Profession profession) {
-        this.profession = profession;
-    }
-
-    public Profession getProfession() {
-        return profession;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", personDetails= " + "Email: " + personDetails.getEmail() + " Gender: " + personDetails.getGender() + " Age: " + personDetails.getAge() + " Created: " + personDetails.getCreated() +
-                '}';
     }
 }

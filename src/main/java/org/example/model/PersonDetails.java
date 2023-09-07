@@ -36,14 +36,12 @@ public class PersonDetails {
     @Column(name = "created", nullable = false)
     private LocalDate created;
 
-    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<Phone> phoneSet = new HashSet<>();
 
     @OneToOne
     private Address address;
-
-
+    
     @Setter
     @OneToOne(mappedBy = "personDetails", cascade = CascadeType.ALL)
     private Person person;

@@ -39,13 +39,11 @@ public class Phone {
         this.description = description;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public Phone(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

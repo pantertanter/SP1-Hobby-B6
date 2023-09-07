@@ -27,12 +27,14 @@ public class Main {
 
         getPersonsInterestedFromHobby();
 
-        getAllHobbiesAndCountOfInterested();
+        getPersonsInCity();
 
         getAllZipsAndCities(); // [US-7] As a user I want to get a list of all postcodes and city names in Denmark
 
-        // [US-8] As a user I want to get all the information about a person (address, hobbies etc.) given a phone number
+        getAllInfoFromPhoneNumber();
+    }
 
+    private static void getAllInfoFromPhoneNumber() {
         try (var em = emf.createEntityManager()) {
             TypedQuery<Phone> query = em.createQuery("SELECT p FROM Phone p WHERE p.phoneNumber = :phoneNumber", Phone.class);
             query.setParameter("phoneNumber", "+45 28367463");
@@ -44,8 +46,28 @@ public class Main {
                     " " + phone.getPersonDetails().getPerson().getProfession().getName() +
                     " " + phone.getPersonDetails().getPerson().getHobbies() +
                     " " + phone.getPersonDetails().getPerson().getInterests()));
+        }
+    }
 
+    private static void getPersonsInCity() {
+        try (var em = emf.createEntityManager()) {
+            Zip hillerød = em.find(Zip.class, 3400);
 
+            Set<Person> inHillerød = new HashSet<>();
+
+            List<Address> addresses = hillerød.getAddresses();
+
+            for (Address a : addresses) {
+                inHillerød.add(a.getPersonDetails().getPerson());
+            }
+
+            for (Person p : inHillerød) {
+                System.out.println("Lives In Hillerød: " + p);
+            }
+            /*getAllHobbiesAndCountOfInterested();
+
+            getAllZipsAndCities(); // [US-7] As a user I want to get a list of all postcodes and city names in Denmark
+*/
         }
     }
 
@@ -58,7 +80,8 @@ public class Main {
             }
         }
 
-        private static void getAllHobbiesAndCountOfInterested () {
+
+        private static void getAllHobbiesAndCountOfInterested() {
             try (var em = emf.createEntityManager()) {
                 TypedQuery<Hobby> query = em.createQuery("SELECT h FROM Hobby h", Hobby.class);
                 List<Hobby> hobbies = query.getResultList();
@@ -66,7 +89,9 @@ public class Main {
             }
         }
 
-        private static void getPersonsInterestedFromHobby () {
+
+        private static void getPersonsInterestedFromHobby() {
+
             try (var em = emf.createEntityManager()) {
                 Hobby modelTrains = em.find(Hobby.class, "Painting");
 
@@ -103,6 +128,7 @@ public class Main {
         }
 
         private static void persistNewPerson () {
+
             Phone phone1 = new Phone("+45 28367463");
             Phone phone2 = new Phone("+45 73848493");
 
@@ -208,4 +234,4 @@ public class Main {
                 System.out.println("Hello world!");
             }
         }
-    }
+}
