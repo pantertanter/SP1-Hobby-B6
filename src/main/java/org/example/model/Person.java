@@ -47,8 +47,11 @@ public class Person {
     }
 
     @PreUpdate
+    public void preUpdate() {
+        created = LocalDate.now();
+    }
 
-    @
+
 
 
     public void setPersonDetails(PersonDetails personDetails) {
