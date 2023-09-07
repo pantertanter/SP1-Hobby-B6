@@ -45,8 +45,11 @@ class PersonDetailsDAOTest {
         myPhoneSet2.add(phone3);
         myPhoneSet2.add(phone4);
 
-        PersonDetails pd1 = new PersonDetails("pd1@email.com", PersonDetails.Gender.MALE, 35, LocalDate.of(2023,9,6), myPhoneSet, address1);
-        PersonDetails pd2 = new PersonDetails("pd2@email.com", PersonDetails.Gender.MALE, 40, LocalDate.of(2023,9,5), myPhoneSet2, address2);
+        PersonDetails pd1 = new PersonDetails("pd1@email.com", PersonDetails.Gender.MALE, 35, LocalDate.of(2023,9,6), address1);
+        PersonDetails pd2 = new PersonDetails("pd2@email.com", PersonDetails.Gender.MALE, 40, LocalDate.of(2023,9,5), address2);
+
+        pd1.setPhoneSet(myPhoneSet);
+        pd2.setPhoneSet(myPhoneSet2);
 
         pd1.setPerson(p1);
         pd2.setPerson(p2);
@@ -119,7 +122,7 @@ class PersonDetailsDAOTest {
 
         Zip zip3 = new Zip(1234, "testcity");
         Address address3 = new Address("teststreet","99",zip3);
-        PersonDetails pd3 = new PersonDetails("smp@mail.com", PersonDetails.Gender.MALE, 26, LocalDate.now(), new HashSet<>(),address3);
+        PersonDetails pd3 = new PersonDetails("smp@mail.com", PersonDetails.Gender.MALE, 26, LocalDate.now(),address3);
 
         Person p3 = new Person("person3");
         p3.setPersonDetails(pd3);

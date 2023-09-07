@@ -13,7 +13,6 @@ import java.util.Set;
 
 @Getter
 @NoArgsConstructor
-@ToString
 @Entity
 @Table(name = "person")
 @NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p")
@@ -82,5 +81,14 @@ public class Person {
                 i.getPersons().add(this); // Establish the bidirectional relationship
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", created=" + created +
+                ", personDetails=" + personDetails;
     }
 }

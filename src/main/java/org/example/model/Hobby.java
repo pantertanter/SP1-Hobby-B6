@@ -12,7 +12,6 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "hobby")
-@ToString
 @NamedQuery(name = "Hobby.findAll", query = "SELECT h FROM Hobby h")
 public class Hobby {
 
@@ -32,5 +31,10 @@ public class Hobby {
         this.name = name;
     }
 
-
+    @Override
+    public String toString() {
+        return "Hobby{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'';
+    }
 }

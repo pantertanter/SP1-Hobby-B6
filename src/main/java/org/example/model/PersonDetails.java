@@ -72,5 +72,14 @@ public class PersonDetails {
         this.address = address;
     }
 
-
+    @Override
+    public String toString() {
+        return "PersonDetails{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", gender=" + gender +
+                ", age=" + age +
+                ", created=" + created +
+                '}';
+    }
 }
