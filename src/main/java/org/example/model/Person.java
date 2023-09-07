@@ -25,7 +25,7 @@ public class Person {
     @Column(name = "created", nullable = false)
     private LocalDate created;
 
-    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private PersonDetails personDetails;
 
     @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)

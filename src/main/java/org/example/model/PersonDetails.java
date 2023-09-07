@@ -20,13 +20,13 @@ import java.util.Set;
 public class PersonDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-//    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     @Column(name = "gender", nullable = false)
     private PersonDetails.Gender gender;
 
@@ -46,7 +46,7 @@ public class PersonDetails {
 
     @Setter
     @MapsId
-    @OneToOne(mappedBy = "personDetails", cascade = CascadeType.PERSIST)
+    @OneToOne(mappedBy = "personDetails", cascade = CascadeType.ALL)
     private Person person;
     public void addPhone(Phone phone){
         phoneSet.add(phone);

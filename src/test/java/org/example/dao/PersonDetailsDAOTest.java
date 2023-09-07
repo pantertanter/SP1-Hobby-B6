@@ -25,7 +25,6 @@ class PersonDetailsDAOTest {
         Person p1 = new Person("person1");
         Person p2 = new Person("person2");
 
-
         Zip zip1 = new Zip(3400, "Hillerød");
         Zip zip2 = new Zip(2200, "København N");
 
@@ -52,8 +51,26 @@ class PersonDetailsDAOTest {
         pd1.setPerson(p1);
         pd2.setPerson(p2);
 
-        personDetailsDAO.savePersonDetails(pd1);
-        personDetailsDAO.savePersonDetails(pd2);
+        try(EntityManager em = HibernateConfigTest.getEntityManagerFactoryConfig().createEntityManager()){
+            em.getTransaction().begin();
+
+            em.persist(zip1);
+            em.persist(zip2);
+            em.persist(address1);
+            em.persist(address2);
+
+            em.persist(phone1);
+            em.persist(phone2);
+            em.persist(phone3);
+            em.persist(phone4);
+
+            em.persist(pd1);
+            em.persist(pd2);
+
+            em.persist(p1);
+            em.persist(p2);
+
+        }
 
 
     }
@@ -65,7 +82,7 @@ class PersonDetailsDAOTest {
         try {
             em.getTransaction().begin();
 
-
+/*
             em.createNativeQuery("DELETE FROM person_hobby").executeUpdate();
             em.createNativeQuery("DELETE FROM person_interest").executeUpdate();
             em.createNativeQuery("DELETE FROM person").executeUpdate();
@@ -83,7 +100,7 @@ class PersonDetailsDAOTest {
             em.createNativeQuery("DELETE FROM phone").executeUpdate();
             em.createNativeQuery("DELETE FROM profession_person").executeUpdate();
             em.createNativeQuery("DELETE FROM profession").executeUpdate();
-
+*/
 
             em.createNativeQuery("ALTER SEQUENCE address_id_seq RESTART WITH 1").executeUpdate();
             em.createNativeQuery("ALTER SEQUENCE person_id_seq RESTART WITH 1").executeUpdate();
