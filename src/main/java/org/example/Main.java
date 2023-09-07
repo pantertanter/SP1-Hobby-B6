@@ -47,12 +47,13 @@ public class Main {
             for (Person p : inHillerød) {
                 System.out.println("Lives In Hillerød: " + p);
             }
-            getAllHobbiesAndCountOfInterested();
+            /*getAllHobbiesAndCountOfInterested();
 
             getAllZipsAndCities(); // [US-7] As a user I want to get a list of all postcodes and city names in Denmark
-
+*/
 
         }
+    }
 
         private static void getAllZipsAndCities () {
             try (var em = emf.createEntityManager()) {
@@ -211,7 +212,7 @@ public class Main {
                 em.getTransaction().commit();
 
                 System.out.println("Hello world!");
-            }
+
         }
     }
 }
