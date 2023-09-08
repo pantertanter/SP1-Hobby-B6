@@ -17,6 +17,10 @@ public interface IPersonDAO {
 
     public Person deletePerson(Person person);
 
+    public Person findAllInfoAboutPerson();           // [US-1] As a user I want to get all the information about a person
+
+    
+
     public List<Person> readAllPersonsByHobby(Hobby hobby); // [US-3]
 
     public List<Person> countOfPersonsWithHobby(Hobby hobby); //[US-4]

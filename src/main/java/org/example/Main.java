@@ -27,7 +27,7 @@ public class Main {
 
         getPersonsInterestedFromHobby();    // [US-4] As a user I want to get the number of people with a given hobby
 
-        
+        getAllHobbiesAndCountOfInterested();// [US-5] As a user I want to get a list of all hobbies and a count of how many have that hobby
 
         getPersonsInCity();                 // [US-6] As a user I want to get all persons living in a given city (i.e. 2800 Lyngby)
 
