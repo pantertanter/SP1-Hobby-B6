@@ -2,12 +2,12 @@ package org.example.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.TypedQuery;
 import org.example.model.Hobby;
 import org.example.model.Person;
-import org.example.model.Zip;
+import org.example.model.Phone;
 
 import java.util.List;
+import java.util.Set;
 
 public class PersonDAO implements IPersonDAO {
 
@@ -15,8 +15,8 @@ public class PersonDAO implements IPersonDAO {
 
     private static PersonDAO instance;
 
-    public static PersonDAO getInstance(EntityManagerFactory _emf){
-        if(instance == null){
+    public static PersonDAO getInstance(EntityManagerFactory _emf) {
+        if (instance == null) {
             emf = _emf;
             instance = new PersonDAO();
         }
@@ -25,7 +25,7 @@ public class PersonDAO implements IPersonDAO {
 
     @Override
     public Person savePerson(Person person) {
-        try(EntityManager em = emf.createEntityManager()){
+        try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             em.persist(person);
             em.getTransaction().commit();
@@ -35,21 +35,21 @@ public class PersonDAO implements IPersonDAO {
 
     @Override
     public Person readPerson(int id) {
-        try(EntityManager em = emf.createEntityManager()){
-            return em.find(Person.class,id);
+        try (EntityManager em = emf.createEntityManager()) {
+            return em.find(Person.class, id);
         }
     }
 
     @Override
     public List<Person> readAllPersons() {
-        try(EntityManager em = emf.createEntityManager()){
+        try (EntityManager em = emf.createEntityManager()) {
             return em.createNamedQuery("Person.findAll", Person.class).getResultList();
         }
     }
 
     @Override
     public Person updatePerson(Person person) {
-        try(EntityManager em = emf.createEntityManager()){
+        try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             em.merge(person);
             em.getTransaction().commit();
@@ -59,7 +59,7 @@ public class PersonDAO implements IPersonDAO {
 
     @Override
     public Person deletePerson(Person person) {
-        try(EntityManager em = emf.createEntityManager()){
+        try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             em.remove(person);
             em.getTransaction().commit();
@@ -68,38 +68,58 @@ public class PersonDAO implements IPersonDAO {
     }
 
     @Override
-    public List<Person> readAllPersonsByHobby(Hobby hobby) { // [US-3]
-        try (EntityManager em = emf.createEntityManager()) {
-            TypedQuery<Person> query = em.createQuery("SELECT p FROM Person p JOIN p.hobbies h WHERE h.name = :hobbyName", Person.class);
-            query.setParameter("hobbyName", hobby.getName());
-
-            List<Person> resultList = query.getResultList();
-
-            for (Person person : resultList) {
-                System.out.println(person);
-            }
-
-            return resultList;
+    public Person findAllInfoAboutPerson(int id) {
+        try (var em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+            Person person = em.find(Person.class, id);
+            System.out.println(person);
+            em.getTransaction().commit();
+            return person;
         }
     }
 
-        @Override
-    public List<Person> countOfPersonsWithHobby(Hobby hobby) { //[US-4]
+    @Override
+    public Set<Phone> getAllPhonesForAPerson(int id) {
+        try (var em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+            Person person = em.find(Person.class, id);
+            Set<Phone> phoneSet = person.getPersonDetails().getPhoneSet();
+            em.getTransaction().commit();
+            return phoneSet;
+        }
+    }
+
+    @Override
+    public Set<Person> getPersonsFromHobby(String hobbyName) {
+        try (var em = emf.createEntityManager()) {
+            Hobby hobby1 = em.find(Hobby.class, "hobby");
+            for (Person p : hobby1.getPersons()) {
+                System.out.println("PERSON INTERESTED IN MODEL TRAINS: " + p);
+                Set<Person> personSet = hobby1.getPersons();
+                return personSet;
+            }
+        }
+    }
+
+    @Override
+    public List<Person> countOfPersonsWithHobby(Hobby hobby) {
         return null;
     }
 
     @Override
-    public List<Person> readAllHobbiesAndCountOfInterested() { //[US-5]
+    public void readAllHobbiesAndCountOfInterested() {
+
+    }
+
+    @Override
+    public List<Person> readAllPersonsByCity(String city) {
         return null;
     }
 
     @Override
-    public List<Person> readAllPersonsByCity(String city) { //[US-6]
+    public List<Person> readAllPersonsByPhone(String phoneNumber) {
         return null;
     }
 
-    @Override
-    public List<Person> readAllPersonsByPhone(String phoneNumber) { //[US-8]
-        return null;
-    }
+
 }
