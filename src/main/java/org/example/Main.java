@@ -52,7 +52,7 @@ public class Main {
     }
 
     private static void getPersonsInCity() {
-        try (var em = emf.createEntityManager()) {
+        /*try (var em = emf.createEntityManager()) {
             Zip hillerød = em.find(Zip.class, 3400);
 
             Set<Person> inHillerød = new HashSet<>();
@@ -66,11 +66,11 @@ public class Main {
             for (Person p : inHillerød) {
                 System.out.println("Lives In Hillerød: " + p);
             }
-            /*getAllHobbiesAndCountOfInterested();
+            *//*getAllHobbiesAndCountOfInterested();
 
             getAllZipsAndCities(); // [US-7] As a user I want to get a list of all postcodes and city names in Denmark
-*/
-        }
+*//*
+        }*/
     }
 
         private static void getAllZipsAndCities () {
@@ -148,19 +148,25 @@ public class Main {
             Zip zip1 = new Zip(3400, "Hillerød");
             Zip zip2 = new Zip(2200, "København N");
 
-            Address address1 = new Address("Hillerødvej", "1", zip1);
-            Address address2 = new Address("Nørregade", "2", zip2);
+            Address address1 = new Address("Hillerødvej", "1");
+            Address address2 = new Address("Nørregade", "2");
+
+            address1.setZip(zip1);
+            address2.setZip(zip2);
 
             PersonDetails personDetails1 = new PersonDetails("Alex@Mail.com",
                     PersonDetails.Gender.MALE, 35,
-                    LocalDate.of(2023, 9, 7), address1);
+                    LocalDate.of(2023, 9, 7));
 
             PersonDetails personDetails2 = new PersonDetails("Bob@Mail.com",
                     PersonDetails.Gender.MALE, 40,
-                    LocalDate.of(2023, 9, 8), address2);
+                    LocalDate.of(2023, 9, 8));
 
             personDetails1.setPhoneSet(myPhoneSet);
             personDetails2.setPhoneSet(myPhoneSet2);
+
+            personDetails1.setAddress(address1);
+            personDetails2.setAddress(address2);
 
             Hobby hobby1 = new Hobby("Model-trains");
             Hobby hobby2 = new Hobby("Painting");

@@ -92,27 +92,15 @@ public class PersonDAO implements IPersonDAO {
     @Override
     public Set<Person> getPersonsFromHobby(String hobbyName) {
         try (var em = emf.createEntityManager()) {
-            Hobby hobby1 = em.find(Hobby.class, "hobby");
-            for (Person p : hobby1.getPersons()) {
-                System.out.println("PERSON INTERESTED IN MODEL TRAINS: " + p);
+            Hobby hobby1 = em.find(Hobby.class, hobbyName);
                 Set<Person> personSet = hobby1.getPersons();
                 return personSet;
             }
         }
-    }
-
-    @Override
-    public List<Person> countOfPersonsWithHobby(Hobby hobby) {
-        return null;
-    }
-
-    @Override
-    public void readAllHobbiesAndCountOfInterested() {
-
-    }
 
     @Override
     public List<Person> readAllPersonsByCity(String city) {
+
         return null;
     }
 

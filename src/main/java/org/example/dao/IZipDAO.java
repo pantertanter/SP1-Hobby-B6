@@ -16,7 +16,7 @@ public interface IZipDAO {
 
     public Zip deleteZip(Zip zip);
 
-    public List<Person> getPersonsInCity(String city);     // [US-6] As a user I want to get all persons living in a given city (i.e. 2800 Lyngby)
+    public void getPersonsInCity(int zipCode);     // [US-6] As a user I want to get all persons living in a given city (i.e. 2800 Lyngby)
 
     public List<Zip> getAllZipsAndCities();                // [US-7] As a user I want to get a list of all postcodes and city names in Denmark
 

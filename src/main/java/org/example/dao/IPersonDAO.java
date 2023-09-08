@@ -23,11 +23,7 @@ public interface IPersonDAO {
 
     public Set<Phone> getAllPhonesForAPerson(int id);           // [US-2] As a user I want to get all phone numbers from a given person
 
-    public Set<Person> getPersonsFromHobby(Hobby hobby); // [US-3]
-
-    public List<Person> countOfPersonsWithHobby(Hobby hobby); //[US-4]
-
-    public void readAllHobbiesAndCountOfInterested(); //[US-5]
+    public Set<Person> getPersonsFromHobby(String hobbyName); // [US-3]
 
     public List<Person> readAllPersonsByCity(String city); //[US-6]
 

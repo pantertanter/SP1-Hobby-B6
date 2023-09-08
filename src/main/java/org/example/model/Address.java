@@ -26,16 +26,22 @@ public class Address {
     @Column(name = "houseNumber", nullable = false)
     private String houseNumber;
 
+    @Setter
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Zip zip;
 
     //@MapsId
+    @Getter
+    @Setter
     @OneToOne
     private PersonDetails personDetails;
 
-    public Address(String street, String houseNumber, Zip zip) {
+    public void setZip(Zip zip) { // Not bidirectional
+        this.zip = zip;
+    }
+
+    public Address(String street, String houseNumber) {
         this.street = street;
         this.houseNumber = houseNumber;
-        this.zip = zip;
     }
 }

@@ -53,6 +53,11 @@ public class PersonDetails {
         return phoneSet;
     }
 
+    public void setAddress(Address address) {
+        this.address = address;
+        address.setPersonDetails(this);
+    }
+
     public void setPhoneSet(Set<Phone> phoneSet) {
         this.phoneSet = phoneSet;
         for(Phone phone : phoneSet){
@@ -64,12 +69,11 @@ public class PersonDetails {
         MALE, FEMALE, OTHER
     }
 
-    public PersonDetails(String email, PersonDetails.Gender gender, int age, LocalDate created, Address address) {
+    public PersonDetails(String email, PersonDetails.Gender gender, int age, LocalDate created) {
         this.email = email;
         this.gender = gender;
         this.age = age;
         this.created = created;
-        this.address = address;
     }
 
     @Override

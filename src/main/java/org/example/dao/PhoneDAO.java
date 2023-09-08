@@ -2,6 +2,7 @@ package org.example.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import org.example.model.Person;
 import org.example.model.Phone;
 import org.example.model.Zip;
 
@@ -65,5 +66,10 @@ public class PhoneDAO implements IPhoneDAO {
             em.getTransaction().commit();
             return phone;
         }
+    }
+
+    @Override
+    public Person getAllInfoFromPhoneNumber() {
+        return null;
     }
 }

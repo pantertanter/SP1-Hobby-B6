@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @NoArgsConstructor
@@ -23,8 +24,9 @@ public class Zip {
     @Column(name = "city", unique = true, nullable = false)
     private String city;
 
+    @Setter
     @OneToMany(cascade = CascadeType.REMOVE)
-    private List<Address> addresses;
+    private Set<Address> addresses;
 
     public Zip(int zipCode, String city) {
         this.zipCode = zipCode;
